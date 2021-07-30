@@ -49,7 +49,31 @@ public class ProdutoConfiguration extends BaseConfiguration {
 				.linesToSkip(1)
 				.delimited()
 				.delimiter(";")
-				.names(super.getAttributesMap(Produto.class))
+				//.names(super.getAttributesMap(Produto.class))
+				.names(new String[] { "id",
+						"nome",
+						"numero",
+						"flag",
+						"FinishedGoodsFlag",
+						"cor",
+						"safetyStockLevel",	
+						"reorderPoint",	
+						"standardCost",
+						"listPrice",
+						"size",
+						"sizeUnitMeasureCode",
+						"weightUnitMeasureCode",
+						"weight",
+						"daysToManufacture",
+						"productLine",
+						"classe",
+						"style",
+						"productSubcategoryID",
+						"productModelID",
+						"sellStartDate",
+						"sellEndDate",
+						"discontinuedDate",
+						"rowGuid", "dataAlteracao" })
 				.fieldSetMapper(new BeanWrapperFieldSetMapper<Produto>() {
 					{
 						setTargetType(Produto.class);

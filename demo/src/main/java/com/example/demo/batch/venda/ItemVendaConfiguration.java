@@ -49,7 +49,9 @@ public class ItemVendaConfiguration extends BaseConfiguration {
 				.linesToSkip(1)
 				.delimited()
 				.delimiter(";")
-				.names(super.getAttributesMap(ItemVenda.class))
+				//.names(super.getAttributesMap(ItemVenda.class))
+				.names(new String[] { "vandaId", "id", "carrierTrackingNumber", "orderQty", "produtoId", "specialOfferID",
+				 "unitPrice", "unitPriceDiscount", "lineTotal", "rowGuid", "dataAlteracao" })
 				.fieldSetMapper(new BeanWrapperFieldSetMapper<ItemVenda>() {
 					{
 						setTargetType(ItemVenda.class);

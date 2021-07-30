@@ -31,6 +31,7 @@ public class Venda extends Entidade {
 	private String freight;	
 	private String totalDue;	
 	private String comment;
+	
 	public String getId() {
 		return id;
 	}
@@ -175,5 +176,6 @@ public class Venda extends Entidade {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	
 	
 }

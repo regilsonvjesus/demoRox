@@ -31,23 +31,25 @@ public class VendaConfiguration extends BaseConfiguration {
 	}
 
 	@Bean(name = "vendaJobStep")
-	public Step step(StepBuilderFactory steps, 
-			@Qualifier("vendaReader") ItemReader<? extends Venda> reader,
+	public Step step(StepBuilderFactory steps, @Qualifier("vendaReader") ItemReader<? extends Venda> reader,
 			@Qualifier("vendaWriter") ItemWriter<Venda> writer) {
 
-		return steps.get("vendaJobStep").allowStartIfComplete(true).<Venda, Venda>chunk(CHUNK).reader(reader).writer(writer).build();
+		return steps.get("vendaJobStep").allowStartIfComplete(true).<Venda, Venda>chunk(CHUNK).reader(reader)
+				.writer(writer).build();
 	}
-	
+
 	@Bean(name = "vendaReader")
 	public FlatFileItemReader<Venda> reader() {
 		log.info("Iniciando Reader");
-		return new FlatFileItemReaderBuilder<Venda>()
-				.name("vendaReader")
-				.resource(new PathResource(localeFiles.concat("Sales.SalesOrderHeader.csv")))
-				.linesToSkip(1)
-				.delimited()
+		return new FlatFileItemReaderBuilder<Venda>().name("vendaReader")
+				.resource(new PathResource(localeFiles.concat("Sales.SalesOrderHeader.csv"))).linesToSkip(1).delimited()
 				.delimiter(";")
-				.names(super.getAttributesMap(Venda.class))
+				//.names(super.getAttributesMap(Venda.class))
+				.names(new String[] { "id", "revisionNumber", "orderDate", "dueDate", "shipDate", "status",
+						"onlineOrderFlag", "salesOrderNumber", "purchaseOrderNumber", "accountNumber", "clienteId",
+						"salesPersonID", "territoryID", "billToAddressID", "shipToAddressID", "shipMethodID",
+						"creditCardID", "creditCardApprovalCode", "currencyRateID", "subTotal", "taxAmt", "freight",
+						"totalDue", "comment", "rowGuid", "dataAlteracao" })
 				.fieldSetMapper(new BeanWrapperFieldSetMapper<Venda>() {
 					{
 						setTargetType(Venda.class);

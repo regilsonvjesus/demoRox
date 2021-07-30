@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ItemVenda extends Entidade {
 	
 	private String vendaId;
-	@Id
 	private String id;
 	private String carrierTrackingNumber;	
 	private String orderQty;	
