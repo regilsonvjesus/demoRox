@@ -50,7 +50,7 @@ public class ItemVendaConfiguration extends BaseConfiguration {
 				.delimited()
 				.delimiter(";")
 				//.names(super.getAttributesMap(ItemVenda.class))
-				.names(new String[] { "vandaId", "id", "carrierTrackingNumber", "orderQty", "produtoId", "specialOfferID",
+				.names(new String[] { "vendaId", "itemVendaId", "carrierTrackingNumber", "orderQty", "produtoId", "specialOfferID",
 				 "unitPrice", "unitPriceDiscount", "lineTotal", "rowGuid", "dataAlteracao" })
 				.fieldSetMapper(new BeanWrapperFieldSetMapper<ItemVenda>() {
 					{

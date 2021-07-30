@@ -6,8 +6,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "itens_venda")
 public class ItemVenda extends Entidade {
 	
-	private String vendaId;
+	@Id
 	private String id;
+	private String vendaId;
+	private String itemVendaId;
 	private String carrierTrackingNumber;	
 	private String orderQty;	
 	private String produtoId;
@@ -16,18 +18,29 @@ public class ItemVenda extends Entidade {
 	private String unitPriceDiscount;
 	private String lineTotal;
 	
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getVendaId() {
 		return vendaId;
 	}
 	public void setVendaId(String vendaId) {
 		this.vendaId = vendaId;
 	}
-	public String getId() {
-		return id;
+
+	public String getItemVendaId() {
+		return itemVendaId;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setItemVendaId(String itemVendaId) {
+		this.itemVendaId = itemVendaId;
 	}
+
 	public String getCarrierTrackingNumber() {
 		return carrierTrackingNumber;
 	}
